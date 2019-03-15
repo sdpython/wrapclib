@@ -15,6 +15,11 @@ jobs:
           - v2-dependencies-
 
       - run:
+          name: submodules
+          command: |
+            git submodule update --init
+            
+      - run:
           name: Install pandoc
           command: |
                     sudo apt-get update 
