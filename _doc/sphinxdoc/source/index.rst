@@ -3,7 +3,7 @@
              :height: 20
 
 wrapclib
-==============
+========
 
 .. image:: https://travis-ci.org/sdpython/wrapclib.svg?branch=master
     :target: https://travis-ci.org/sdpython/wrapclib
@@ -52,7 +52,13 @@ wrapclib
 :ref:`l-issues-todolist`
 
 *wrapclib* is a wrapper for some C libraries difficult to build
-otherwise.
+otherwise. The first one to be wrapped is :epkg:`re2`:
+
+::
+
+    from wrapclib import re2
+    s = <h1>mot</h1>"
+    print(re2.compile(\"(<.*>)\").match(s).groups())
 
 .. toctree::
     :maxdepth: 1
@@ -62,7 +68,6 @@ otherwise.
     all_notebooks
     blog/blogindex
     i_index
-
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |

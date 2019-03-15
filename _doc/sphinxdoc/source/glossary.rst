@@ -11,4 +11,3 @@ Glossary
 
     re2
         See :epkg:`re2`.
-

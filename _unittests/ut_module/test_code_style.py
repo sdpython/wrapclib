@@ -35,7 +35,8 @@ class TestCodeStyle(ExtTestCase):
         check_pep8(src_, fLOG=fLOG,
                    pylint_ignore=('C0103', 'C1801', 'R0201', 'R1705', 'W0108', 'W0613',
                                   'W0212'),
-                   skip=[])
+                   skip=["gitsrc/re2", "gitsrc\\re",
+                         "gitsrc\\benchlog", "gitsrc\\benchlog"])
 
     def test_style_test(self):
         thi = os.path.abspath(os.path.dirname(__file__))

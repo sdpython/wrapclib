@@ -4,6 +4,4 @@ API
 
 .. toctree::
 
-    fastdata
-    io
-    numbers
+    re2

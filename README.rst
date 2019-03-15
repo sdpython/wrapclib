@@ -41,10 +41,18 @@
 .. _l-README:
 
 wrapclib
-==============
+========
 
 *wrapclib* is a wrapper for some C libraries difficult to build
 otherwise.
+
+**re2**
+
+::
+
+    from wrapclib import re2
+    s = <h1>mot</h1>"
+    print(re2.compile(\"(<.*>)\").match(s).groups())
 
 **Links:**
 

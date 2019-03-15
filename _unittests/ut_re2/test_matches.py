@@ -2,12 +2,9 @@
 @brief      test log(time=3s)
 """
 
-
 import sys
 import os
 import unittest
-from time import sleep
-from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import ExtTestCase
 
 
@@ -186,14 +183,18 @@ class TestMatch(ExtTestCase):
         self.assertEqual(s.match('baro'), [1])
 
     def test_bad_anchoring(self):
-        self.assertRaise(lambda: re2.Set(None), ValueError, 'anchoring must be one of')
-        self.assertRaise(lambda: re2.Set(15), ValueError, 'anchoring must be one of')
-        self.assertRaise(lambda: re2.Set({}), ValueError, 'anchoring must be one of')          
+        self.assertRaise(lambda: re2.Set(None), ValueError,
+                         'anchoring must be one of')
+        self.assertRaise(lambda: re2.Set(15), ValueError,
+                         'anchoring must be one of')
+        self.assertRaise(lambda: re2.Set({}), ValueError,
+                         'anchoring must be one of')
 
     def test_match_without_compile(self):
         s = re2.Set()
         s.add('foo')
-        self.assertRaise(lambda: s.match('bar'), RuntimeError, 'Can\'t match() on an')            
+        self.assertRaise(lambda: s.match('bar'),
+                         RuntimeError, 'Can\'t match() on an')
 
     def test_add_after_compile(self):
         s = re2.Set()
@@ -212,7 +213,22 @@ class TestMatch(ExtTestCase):
         s = re2.Set()
         self.assertRaise(lambda: s.add('('), ValueError, 'missing')
         self.assertRaise(lambda: s.add(3), TypeError)
-            
+
+    def test_findall(self):
+        s = """date 0 : 14/9/2000 date 1 : 20/04/1971 """
+        reg = re2.compile(
+            "([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\\d]")
+        res = reg.search(s, 0)
+        self.assertEqual(res.groups(), ('14/9/2000', '20'))
+        self.assertEqual(res.pos, 0)
+        self.assertEqual(res.endpos, 39)
+        self.assertEqual(res.span(), (9, 19))
+        fall = re2.findall(reg, s)
+        self.assertEqual(fall, [('14/9/2000', '20'), ('20/04/1971', '19')])
+        fall = re2.findall(
+            "([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\\d]", s)
+        self.assertEqual(fall, [('14/9/2000', '20'), ('20/04/1971', '19')])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -454,7 +454,8 @@ create_regexp(PyObject* self, PyObject* pattern, PyObject* error_class)
 }
 
 static PyObject*
-_do_search(RegexpObject2* self, PyObject* args, PyObject* kwds, RE2::Anchor anchor, bool return_match)
+_do_search(RegexpObject2* self, PyObject* args, PyObject* kwds,
+           RE2::Anchor anchor, bool return_match)
 {
   PyObject* string;
   long pos = 0;
@@ -986,6 +987,16 @@ escape(PyObject* self, PyObject* args)
 
   return PyUnicode_FromStringAndSize(esc.c_str(), esc.size());
 }
+
+//////////
+// findall
+// source: https://github.com/python/cpython/blob/master/Modules/_sre.c
+//////////
+
+
+////////////////////
+// module definition
+////////////////////
 
 static PyMethodDef methods[] = {
   {"_compile", (PyCFunction)_compile, METH_VARARGS | METH_KEYWORDS, NULL},

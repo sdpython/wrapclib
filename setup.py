@@ -166,15 +166,15 @@ if not r:
     elif sys.platform.startswith("darwin"):
         libraries_re2 = None
         extra_compile_args_re2 = ['-lpthread', '-stdlib=libc++', '-std=c++11',
-                                     '-mmacosx-version-min=10.7']
+                                  '-mmacosx-version-min=10.7']
     else:
         libraries_re2 = None
         extra_compile_args_re2 = ['-lpthread', '-std=c++11']
-    
+
     #################
     # re2
     #################
-    sources =  [
+    sources = [
         'gitsrc/re2/bitstate.cc',
         'gitsrc/re2/compile.cc',
         'gitsrc/re2/dfa.cc',
@@ -201,9 +201,11 @@ if not r:
     ]
 
     ext_re2 = Extension('wrapclib.re2._re2',
-                        [os.path.join(root, 'src/wrapclib/re2', name) for name in sources],
+                        [os.path.join(root, 'src/wrapclib/re2', name)
+                         for name in sources],
                         extra_compile_args=extra_compile_args_re2,
-                        include_dirs=[os.path.join(root, 'src/wrapclib/re2/gitsrc')],
+                        include_dirs=[os.path.join(
+                            root, 'src/wrapclib/re2/gitsrc')],
                         libraries=libraries_re2)
 
     setup(
