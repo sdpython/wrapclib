@@ -52,13 +52,16 @@ wrapclib
 :ref:`l-issues-todolist`
 
 *wrapclib* is a wrapper for some C libraries difficult to build
-otherwise. The first one to be wrapped is :epkg:`re2`:
+otherwise. The first one to be wrapped is :epkg:`re2` with some
+code taken from :epkg:`pyre2`.
 
-::
+.. runpython::
+    :showcode:
 
     from wrapclib import re2
-    s = <h1>mot</h1>"
-    print(re2.compile(\"(<.*>)\").match(s).groups())
+    s = "<h1>mot</h1>"
+    print(re2.compile("(<.*>)").match(s).groups())
+    print(re2.findall("(<.*>)", s))
 
 .. toctree::
     :maxdepth: 1

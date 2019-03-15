@@ -44,15 +44,16 @@ wrapclib
 ========
 
 *wrapclib* is a wrapper for some C libraries difficult to build
-otherwise.
-
-**re2**
+otherwise. One if them is
+`re2 <https://github.com/google/re2>`_
+with some taken from
+`pyre2 <https://github.com/facebook/pyre2>`_.
 
 ::
 
     from wrapclib import re2
-    s = <h1>mot</h1>"
-    print(re2.compile(\"(<.*>)\").match(s).groups())
+    s = "<h1>mot</h1>"
+    print(re2.compile("(<.*>)").match(s).groups())
 
 **Links:**
 
