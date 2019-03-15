@@ -2,7 +2,7 @@
     :target: https://travis-ci.org/sdpython/wrapclib
     :alt: Build status
 
-.. image:: https://ci.appveyor.com/api/projects/status/sia7wxgjv8e1fi5a?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/auonxiihm1eihv3t?svg=true
     :target: https://ci.appveyor.com/project/sdpython/wrapclib
     :alt: Build Status Windows
 
