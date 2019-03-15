@@ -27,7 +27,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
 import sre_constants
-import _re2
+from ._re2 import _compile  # pylint: disable=E0611
+from ._re2 import escape, Set, UNANCHORED, ANCHOR_START, ANCHOR_BOTH  # pylint: disable=E0611
 
 __all__ = [
     "error",
@@ -42,15 +43,7 @@ __all__ = [
     "ANCHOR_BOTH",
 ]
 
-# Module-private compilation function, for future caching, other enhancements
-_compile = _re2._compile  # pylint: disable=E1101
-
 error = sre_constants.error  # pylint: disable=E1101
-escape = _re2.escape  # pylint: disable=E1101
-Set = _re2.Set  # pylint: disable=E1101
-UNANCHORED = _re2.UNANCHORED  # pylint: disable=E1101
-ANCHOR_START = _re2.ANCHOR_START  # pylint: disable=E1101
-ANCHOR_BOTH = _re2.ANCHOR_BOTH  # pylint: disable=E1101
 
 
 def compile(pattern):  # pylint: disable=W0622
