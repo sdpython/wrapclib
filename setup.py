@@ -93,27 +93,10 @@ if "upload" in sys.argv and not subversion and not ask_help():
     raise Exception(
         "Git version is empty, cannot upload, is_local()={0}".format(is_local()))
 
-########
-# pybind11
-########
-
-
-class get_pybind_include(object):
-    """
-    Helper class to determine the pybind11 include path
-    The purpose of this class is to postpone importing pybind11
-    until it is actually installed, so that the ``get_include()``
-    method can be invoked.
-    `Source <https://github.com/pybind/python_example/blob/master/setup.py>`_.
-    """
-
-    def __init__(self, user=False):
-        self.user = user
-
-    def __str__(self):
-        import pybind11
-        return pybind11.get_include(self.user)
-
+##############
+# submodule
+##############
+# git submodule add -b master https://github.com/google/re2.git src/wrapclib/re2/gitsrc
 
 ##############
 # common part
@@ -178,33 +161,54 @@ if not r:
     root = os.path.abspath(os.path.dirname(__file__))
 
     if sys.platform.startswith("win"):
-        libraries_thread = ['kernel32']
-        extra_compile_args_thread = None
-        extra_compile_args_numbers = ['/EHsc', '/O2', '/Gy']
+        libraries_re2 = ['kernel32']
+        extra_compile_args_re2 = None
     elif sys.platform.startswith("darwin"):
-        libraries_thread = None
-        extra_compile_args_thread = ['-lpthread', '-stdlib=libc++', '-std=c++11',
+        libraries_re2 = None
+        extra_compile_args_re2 = ['-lpthread', '-stdlib=libc++', '-std=c++11',
                                      '-mmacosx-version-min=10.7']
-        extra_compile_args_numbers = ['-stdlib=libc++', '-mmacosx-version-min=10.7',
-                                      '-std=c++11']
     else:
-        libraries_thread = None
-        extra_compile_args_thread = ['-lpthread', '-std=c++11']
-        # option -mavx512f enable AVX 512 instructions
-        # see https://blog.qiqitori.com/?p=390
-        extra_compile_args_numbers = ['-std=c++11']  # , '-o2', '-mavx512f']
+        libraries_re2 = None
+        extra_compile_args_re2 = ['-lpthread', '-std=c++11']
+    
+    #################
+    # re2
+    #################
+    sources =  [
+        'gitsrc/re2/bitstate.cc',
+        'gitsrc/re2/compile.cc',
+        'gitsrc/re2/dfa.cc',
+        'gitsrc/re2/filtered_re2.cc',
+        'gitsrc/re2/mimics_pcre.cc',
+        'gitsrc/re2/nfa.cc',
+        'gitsrc/re2/onepass.cc',
+        'gitsrc/re2/parse.cc',
+        'gitsrc/re2/perl_groups.cc',
+        'gitsrc/re2/prefilter.cc',
+        'gitsrc/re2/prefilter_tree.cc',
+        'gitsrc/re2/prog.cc',
+        'gitsrc/re2/re2.cc',
+        'gitsrc/re2/regexp.cc',
+        'gitsrc/re2/set.cc',
+        'gitsrc/re2/simplify.cc',
+        'gitsrc/re2/stringpiece.cc',
+        'gitsrc/re2/tostring.cc',
+        'gitsrc/re2/unicode_casefold.cc',
+        'gitsrc/re2/unicode_groups.cc',
+        'gitsrc/util/rune.cc',
+        'gitsrc/util/strutil.cc',
+        '_re2.cc',
+    ]
 
-    ext_thread = Extension('cpyquickhelper.parallel.threader',
-                           [os.path.join(root, 'src/cpyquickhelper/parallel/threaderc.cpp'),
-                            os.path.join(root, 'src/cpyquickhelper/parallel/threader.cpp')],
-                           extra_compile_args=extra_compile_args_thread,
-                           include_dirs=[os.path.join(
-                               root, 'src/cpyquickhelper/parallel')],
-                           libraries=libraries_thread)
+    ext_re2 = Extension('wrapclib.re2._re2',
+                        [os.path.join(root, 'src/wrapclib/re2', name) for name in sources],
+                        extra_compile_args=extra_compile_args_re2,
+                        include_dirs=[os.path.join(root, 'src/wrapclib/re2/gitsrc')],
+                        libraries=libraries_re2)
 
     setup(
         name=project_var_name,
-        ext_modules=[ext_thread, ext_stdhelper, ext_numbers, ext_benchmark],
+        ext_modules=[ext_re2],
         version='%s%s' % (sversion, subversion),
         author='Xavier Dupré',
         author_email='xavier.dupre@gmail.com',
