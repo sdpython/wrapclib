@@ -13,6 +13,7 @@ environment:
       PYTHON_ARCH: "64"
 
 init:
+  - git submodule update --init
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
