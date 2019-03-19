@@ -13,10 +13,10 @@ environment:
       PYTHON_ARCH: "64"
 
 init:
-  - git submodule update --init
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
+  - git submodule update --init
   - "%PYTHON%\\python -m pip install --upgrade pip"
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
   - "%PYTHON%\\Scripts\\pymy_install3 --set=pyquickhelper"
