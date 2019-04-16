@@ -9,9 +9,6 @@
 .. image:: https://circleci.com/gh/sdpython/wrapclib/tree/master.svg?style=svg
     :target: https://circleci.com/gh/sdpython/wrapclib/tree/master
 
-.. image:: https://dev.azure.com/xavierdupre3/wrapclib/_apis/build/status/sdpython.wrapclib
-    :target: https://dev.azure.com/xavierdupre3/wrapclib/
-
 .. image:: https://badge.fury.io/py/wrapclib.svg
     :target: https://pypi.org/project/wrapclib/
 
@@ -29,10 +26,6 @@
 .. image:: http://img.shields.io/github/issues/sdpython/wrapclib.png
     :alt: GitHub Issues
     :target: https://github.com/sdpython/wrapclib/issues
-
-.. image:: https://badge.waffle.io/sdpython/wrapclib.png?label=to%20do&title=to%20do
-    :alt: Waffle
-    :target: https://waffle.io/wrapclib/wrapclib
 
 .. image:: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/_images/nbcov.png
     :target: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/all_notebooks_coverage.html
