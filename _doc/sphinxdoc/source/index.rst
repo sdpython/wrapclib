@@ -45,8 +45,7 @@ wrapclib
 **Links:** `github <https://github.com/sdpython/wrapclib/>`_,
 `documentation <http://www.xavierdupre.fr/app/wrapclib/helpsphinx/index.html>`_,
 :ref:`l-README`,
-:ref:`blog <ap-main-0>`,
-:ref:`l-issues-todolist`
+:ref:`blog <ap-main-0>`
 
 *wrapclib* is a wrapper for some C libraries difficult to build
 otherwise. The first one to be wrapped is :epkg:`re2` with some
