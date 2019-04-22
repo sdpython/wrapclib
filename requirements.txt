@@ -6,6 +6,6 @@ pandas>=0.24
 pylint
 pillow
 pyquickhelper>=1.9
-sphinx-rtd-theme
-sphinxjp.themes.sphinxjp
+sphinx
+sphinx_readable_theme
 wheel

@@ -34,10 +34,6 @@ wrapclib
     :alt: GitHub Issues
     :target: https://github.com/sdpython/wrapclib/issues
 
-.. image:: https://badge.waffle.io/sdpython/wrapclib.png?label=to%20do&title=to%20do
-    :alt: Waffle
-    :target: https://waffle.io/sdpython/wrapclib
-
 .. image:: nbcov.png
     :target: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
