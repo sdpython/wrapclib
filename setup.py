@@ -139,6 +139,7 @@ if is_local():
         layout=["html"], github_owner='sdpython',
         add_htmlhelp=sys.platform.startswith("win"),
         coverage_options=dict(omit=["*exclude*.py"]),
+        fexclude=lambda name: 'gitsrc' in name,
         fLOG=logging_function, covtoken=("c6f1a6de-be91-4d6e-9123-c9f144edae8d", "'_UT_37_std' in outfile"))
     if not r and not ({"bdist_msi", "sdist",
                        "bdist_wheel", "publish", "publish_doc", "register",

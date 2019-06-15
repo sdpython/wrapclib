@@ -36,6 +36,7 @@ __all__ = [
     "compile",
     "search",
     "match",
+    "findall",
     "fullmatch",
     "Set",
     "UNANCHORED",
@@ -82,6 +83,25 @@ def findall(pattern, string, pos=0, endpos=-1):
     @param      pos         first position to look into
     @param      endpos      last position to look into (-1 for the last one)
     @return                 list of results
+
+    .. exref::
+        :title: Example of findall
+
+        A quick example with method
+        @see fn findall.
+
+        .. runpython::
+            :showcode:
+
+            from wrapclib import re2
+
+            s = "date 0 : 14/9/2000 date 1 : 20/04/1971 "
+
+            reg = re2.compile(
+                "([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\\d]")
+
+            fall = re2.findall(reg, s)
+            print(fall)
     """
     if isinstance(pattern, str):
         pattern = _compile(pattern, error)
