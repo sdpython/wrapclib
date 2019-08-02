@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@brief      test log(time=36s)
+@brief      test log(time=30s)
 """
 import os
 import unittest
@@ -10,9 +10,9 @@ from pyquickhelper.ipythonhelper import test_notebook_execution_coverage
 import wrapclib
 
 
-class TestRunNotebooksPython(ExtTestCase):
+class TestRunNotebooksRe2(ExtTestCase):
 
-    def test_run_notebooks(self):
+    def test_run_re2(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -24,8 +24,8 @@ class TestRunNotebooksPython(ExtTestCase):
 
         folder = os.path.join(os.path.dirname(__file__),
                               "..", "..", "_doc", "notebooks")
-        test_notebook_execution_coverage(__file__, "", folder,
-                                         'wrapclib', fLOG=fLOG)
+        test_notebook_execution_coverage(__file__, "re2", folder,
+                                         this_module_name='wrapclib', fLOG=fLOG)
 
 
 if __name__ == "__main__":
