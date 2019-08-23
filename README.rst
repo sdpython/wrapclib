@@ -1,3 +1,12 @@
+
+.. image:: https://github.com/sdpython/wrapclib/blob/master/_doc/sphinxdoc/source/phdoc_static/project_ico.png?raw=true
+    :target: https://github.com/sdpython/wrapclib/
+
+.. _l-README:
+
+wrapclib
+========
+
 .. image:: https://travis-ci.org/sdpython/wrapclib.svg?branch=master
     :target: https://travis-ci.org/sdpython/wrapclib
     :alt: Build status
@@ -30,11 +39,6 @@
 .. image:: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/_images/nbcov.png
     :target: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
-
-.. _l-README:
-
-wrapclib
-========
 
 *wrapclib* is a wrapper for some C libraries difficult to build
 otherwise. One if them is
