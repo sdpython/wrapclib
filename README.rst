@@ -40,6 +40,18 @@ wrapclib
     :target: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 
+.. image:: https://pepy.tech/badge/wrapclib/month
+    :target: https://pepy.tech/project/wrapclib/month
+    :alt: Downloads
+
+.. image:: https://img.shields.io/github/forks/sdpython/wrapclib.svg
+    :target: https://github.com/sdpython/wrapclib/
+    :alt: Forks
+
+.. image:: https://img.shields.io/github/stars/sdpython/wrapclib.svg
+    :target: https://github.com/sdpython/wrapclib/
+    :alt: Stars
+
 *wrapclib* is a wrapper for some C libraries difficult to build
 otherwise. One if them is
 `re2 <https://github.com/google/re2>`_
