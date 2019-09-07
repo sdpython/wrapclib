@@ -31,10 +31,38 @@ CLASSIFIERS = [
 # data
 #######
 
+# re2
+sources_re2 = [
+    'gitsrc/re2/bitstate.cc',
+    'gitsrc/re2/compile.cc',
+    'gitsrc/re2/dfa.cc',
+    'gitsrc/re2/filtered_re2.cc',
+    'gitsrc/re2/mimics_pcre.cc',
+    'gitsrc/re2/nfa.cc',
+    'gitsrc/re2/onepass.cc',
+    'gitsrc/re2/parse.cc',
+    'gitsrc/re2/perl_groups.cc',
+    'gitsrc/re2/prefilter.cc',
+    'gitsrc/re2/prefilter_tree.cc',
+    'gitsrc/re2/prog.cc',
+    'gitsrc/re2/re2.cc',
+    'gitsrc/re2/regexp.cc',
+    'gitsrc/re2/set.cc',
+    'gitsrc/re2/simplify.cc',
+    'gitsrc/re2/stringpiece.cc',
+    'gitsrc/re2/tostring.cc',
+    'gitsrc/re2/unicode_casefold.cc',
+    'gitsrc/re2/unicode_groups.cc',
+    'gitsrc/util/rune.cc',
+    'gitsrc/util/strutil.cc',
+    '_re2.cc',
+]
+
 packages = find_packages('src', exclude='src')
 package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
 package_data = {
     project_var_name + ".js": ["*.js", "*.css"],
+    project_var_name + ".re2": sources_re2,
 }
 
 ############
@@ -172,38 +200,9 @@ if not r:
         libraries_re2 = None
         extra_compile_args_re2 = ['-lpthread', '-std=c++11']
 
-    #################
-    # re2
-    #################
-    sources = [
-        'gitsrc/re2/bitstate.cc',
-        'gitsrc/re2/compile.cc',
-        'gitsrc/re2/dfa.cc',
-        'gitsrc/re2/filtered_re2.cc',
-        'gitsrc/re2/mimics_pcre.cc',
-        'gitsrc/re2/nfa.cc',
-        'gitsrc/re2/onepass.cc',
-        'gitsrc/re2/parse.cc',
-        'gitsrc/re2/perl_groups.cc',
-        'gitsrc/re2/prefilter.cc',
-        'gitsrc/re2/prefilter_tree.cc',
-        'gitsrc/re2/prog.cc',
-        'gitsrc/re2/re2.cc',
-        'gitsrc/re2/regexp.cc',
-        'gitsrc/re2/set.cc',
-        'gitsrc/re2/simplify.cc',
-        'gitsrc/re2/stringpiece.cc',
-        'gitsrc/re2/tostring.cc',
-        'gitsrc/re2/unicode_casefold.cc',
-        'gitsrc/re2/unicode_groups.cc',
-        'gitsrc/util/rune.cc',
-        'gitsrc/util/strutil.cc',
-        '_re2.cc',
-    ]
-
     ext_re2 = Extension('wrapclib.re2._re2',
                         [os.path.join(root, 'src/wrapclib/re2', name)
-                         for name in sources],
+                         for name in sources_re2],
                         extra_compile_args=extra_compile_args_re2,
                         include_dirs=[os.path.join(
                             root, 'src/wrapclib/re2/gitsrc')],
