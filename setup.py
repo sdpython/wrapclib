@@ -76,7 +76,7 @@ def ask_help():
 
 def is_local():
     file = os.path.abspath(__file__).replace("\\", "/").lower()
-    if "/temp/" in file and "pip-" in file:
+    if ("/temp/" in file or '/tmp/' in file) and "pip-" in file:
         return False
     from pyquickhelper.pycode.setup_helper import available_commands_list
     return available_commands_list(sys.argv)
@@ -184,8 +184,20 @@ if not r:
     if len(sys.argv) in (1, 2) and sys.argv[-1] in ("--help-commands",):
         from pyquickhelper.pycode import process_standard_options_for_setup_help
         process_standard_options_for_setup_help(sys.argv)
-    from pyquickhelper.pycode import clean_readme
-    from wrapclib import __version__ as sversion
+
+    try:
+        from pyquickhelper.pycode import clean_readme
+    except ImportError:
+        def clean_readme(x): return x
+
+    try:
+        from wrapclib import __version__ as sversion
+    except ImportError:
+        last = len(sys.path)
+        sys.path.append('src')
+        from wrapclib import __version__ as sversion
+        del sys.path[last]
+
     long_description = clean_readme(long_description)
     root = os.path.abspath(os.path.dirname(__file__))
 
