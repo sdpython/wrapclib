@@ -58,11 +58,17 @@ sources_re2 = [
     '_re2.cc',
 ]
 
+header_re2 = [
+   'gitsrc/re2/*.h',
+   'gitsrc/util/*.h',
+]
+
+
 packages = find_packages('src', exclude='src')
 package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
 package_data = {
     project_var_name + ".js": ["*.js", "*.css"],
-    project_var_name + ".re2": sources_re2,
+    project_var_name + ".re2": sources_re2 + header_re2,
 }
 
 ############
@@ -188,7 +194,7 @@ if not r:
     try:
         from pyquickhelper.pycode import clean_readme
     except ImportError:
-        def clean_readme(x): return x
+        clean_readme = lambda x: x
 
     try:
         from wrapclib import __version__ as sversion
