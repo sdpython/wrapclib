@@ -18,7 +18,7 @@ class TestRunNotebooksRe2(ExtTestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        import jyquickhelper as jyq
+        import jyquickhelper as jyq  # pylint: disable=C0415
         self.assertNotEmpty(jyq)
         self.assertNotEmpty(wrapclib)
 
