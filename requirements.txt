@@ -1,6 +1,8 @@
+autopep8
 coverage
 jupyter
 jyquickhelper
+matplotlib
 numpy>=1.14
 pandas>=0.24
 pylint
