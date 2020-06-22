@@ -1,6 +1,7 @@
 autopep8
 coverage
 jupyter
+jupyter_sphinx
 jyquickhelper
 matplotlib
 numpy>=1.14
