@@ -9,4 +9,5 @@ pylint
 pillow
 pyquickhelper>=1.9.3240
 sphinx
+sphinxcontrib.imagesvg
 wheel
