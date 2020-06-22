@@ -38,6 +38,10 @@ wrapclib
     :target: http://www.xavierdupre.fr/app/wrapclib/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 
+.. image:: https://img.shields.io/github/repo-size/sdpython/wrapclib
+    :target: https://github.com/sdpython/wrapclib/
+    :alt: size
+
 **Links:** `github <https://github.com/sdpython/wrapclib/>`_,
 `documentation <http://www.xavierdupre.fr/app/wrapclib/helpsphinx/index.html>`_,
 :ref:`l-README`,

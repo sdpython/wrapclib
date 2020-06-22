@@ -52,6 +52,10 @@ wrapclib
     :target: https://github.com/sdpython/wrapclib/
     :alt: Stars
 
+.. image:: https://img.shields.io/github/repo-size/sdpython/wrapclib
+    :target: https://github.com/sdpython/wrapclib/
+    :alt: size
+
 *wrapclib* is a wrapper for some C libraries difficult to build
 otherwise. One if them is
 `re2 <https://github.com/google/re2>`_
