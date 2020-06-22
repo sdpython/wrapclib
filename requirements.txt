@@ -1,3 +1,4 @@
+cakephp_theme
 coverage
 jupyter
 jyquickhelper
@@ -7,5 +8,4 @@ pylint
 pillow
 pyquickhelper>=1.9.3240
 sphinx
-sphinx_readable_theme
 wheel
