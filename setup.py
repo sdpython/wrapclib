@@ -59,8 +59,8 @@ sources_re2 = [
 ]
 
 header_re2 = [
-   'gitsrc/re2/*.h',
-   'gitsrc/util/*.h',
+    'gitsrc/re2/*.h',
+    'gitsrc/util/*.h',
 ]
 
 
