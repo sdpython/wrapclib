@@ -30,13 +30,18 @@ jobs:
     displayName: 'Install Requirements'
   - script: python -c "import platform;print(platform.version())"
     displayName: 'Platform'
+  - script: sudo apt-get install -y libpthread-stubs0-dev
+    displayName: 'Install dependencies'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py build_ext --inplace
     displayName: 'Build inplace'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py unittests
     displayName: 'Runs Unit Tests'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
 #  - script: |
@@ -69,19 +74,20 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
-  - script: python -m pip install --upgrade pip setuptools wheel
+  - script: python -m pip install --upgrade pip setuptools wheel wcwidth backcall
     displayName: 'Install tools'
   - script: pip install -r requirements.txt
     displayName: 'Install Requirements'
   - script: python -c "import platform;print(platform.version())"
     displayName: 'Platform'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - script: |
       python -m pip install cibuildwheel
       set CIBW_BEFORE_BUILD=pip install .
-      set CIBW_BEFORE_BUILD=pip install pybind11 cython numpy scipy pyquickhelper
+      set CIBW_BEFORE_BUILD=pip install pybind11 cython numpy scipy pyquickhelper wcwidth backcall
       set CIBW_BUILD=cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
       python -m cibuildwheel --output-dir dist/wheelhouse
     displayName: 'Build Package many'
@@ -147,12 +153,15 @@ jobs:
     displayName: 'Platform'
   - script: |
           # export MACOSX_DEPLOYMENT_TARGET=10.13
+          export PYTHONPATH=src
           python setup.py build_ext --inplace
     displayName: 'Build package'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py unittests
     displayName: 'Runs Unit Tests'
   - script: |
+      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - script: |
