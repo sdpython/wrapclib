@@ -64,8 +64,8 @@ header_re2 = [
 ]
 
 
-packages = find_packages('src', exclude='src')
-package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
+packages = find_packages(".")
+package_dir = {k: k.replace(".", "/") for k in packages}
 package_data = {
     project_var_name + ".js": ["*.js", "*.css"],
     project_var_name + ".re2": sources_re2 + header_re2,
@@ -129,7 +129,7 @@ if "upload" in sys.argv and not subversion and not ask_help():
 ##############
 # submodule
 ##############
-# git submodule add -b master https://github.com/google/re2.git src/wrapclib/re2/gitsrc
+# git submodule add -b master https://github.com/google/re2.git wrapclib/re2/gitsrc
 
 ##############
 # common part
@@ -196,13 +196,7 @@ if not r:
     except ImportError:
         clean_readme = lambda x: x
 
-    try:
-        from wrapclib import __version__ as sversion
-    except ImportError:
-        last = len(sys.path)
-        sys.path.append('src')
-        from wrapclib import __version__ as sversion
-        del sys.path[last]
+    from wrapclib import __version__ as sversion
 
     long_description = clean_readme(long_description)
     root = os.path.abspath(os.path.dirname(__file__))
@@ -219,11 +213,11 @@ if not r:
         extra_compile_args_re2 = ['-lpthread', '-std=c++11']
 
     ext_re2 = Extension('wrapclib.re2._re2',
-                        [os.path.join(root, 'src/wrapclib/re2', name)
+                        [os.path.join(root, 'wrapclib/re2', name)
                          for name in sources_re2],
                         extra_compile_args=extra_compile_args_re2,
                         include_dirs=[os.path.join(
-                            root, 'src/wrapclib/re2/gitsrc')],
+                            root, 'wrapclib/re2/gitsrc')],
                         libraries=libraries_re2)
 
     setup(

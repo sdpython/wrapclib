@@ -12,7 +12,6 @@ install:
   - pip install pyquickhelper --no-deps
 before_script:
   - gcc --version
-  - export PYTHONPATH=src
   - python setup.py build_ext --inplace
 script:
   - python setup.py unittests

@@ -33,15 +33,12 @@ jobs:
   - script: sudo apt-get install -y libpthread-stubs0-dev
     displayName: 'Install dependencies'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py build_ext --inplace
     displayName: 'Build inplace'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py unittests
     displayName: 'Runs Unit Tests'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
 #  - script: |
@@ -81,7 +78,6 @@ jobs:
   - script: python -c "import platform;print(platform.version())"
     displayName: 'Platform'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - script: |
@@ -153,15 +149,12 @@ jobs:
     displayName: 'Platform'
   - script: |
           # export MACOSX_DEPLOYMENT_TARGET=10.13
-          export PYTHONPATH=src
           python setup.py build_ext --inplace
     displayName: 'Build package'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py unittests
     displayName: 'Runs Unit Tests'
   - script: |
-      export PYTHONPATH=src
       python -u setup.py bdist_wheel
     displayName: 'Build Package'
   - script: |
