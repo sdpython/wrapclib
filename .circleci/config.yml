@@ -79,8 +79,8 @@ jobs:
             python setup.py bdist_wheel
             mkdir -p test-reports/dist
             cp dist/*.whl test-reports/dist
-            mkdir -p test-reports/src
-            cp -r  src/wrapclib test-reports/src
+            mkdir -p test-reports
+            cp -r  wrapclib test-reports
 
 #       - run:
 #           name: documentation
