@@ -202,7 +202,7 @@ if not r:
     root = os.path.abspath(os.path.dirname(__file__))
 
     if sys.platform.startswith("win"):
-        libraries_re2 = ['kernel32']
+        libraries_re2 = ['kernel32', '-std=c++11']
         extra_compile_args_re2 = None
     elif sys.platform.startswith("darwin"):
         libraries_re2 = None

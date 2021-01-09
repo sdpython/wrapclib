@@ -5,7 +5,7 @@
 :epkg:`Python` + some C libraries.
 """
 
-__version__ = "0.1.60"
+__version__ = "0.1.63"
 __author__ = "Xavier Dupré"
 __github__ = "https://github.com/sdpython/wrapclib"
 __url__ = "http://www.xavierdupre.fr/app/wrapclib/helpsphinx/index.html"
