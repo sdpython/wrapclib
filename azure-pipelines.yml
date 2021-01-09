@@ -14,6 +14,8 @@ jobs:
       architecture: 'x64'
   - script: git submodule update --recursive
     displayName: 'submodules'
+  - script: ls -R -l *
+    displayName: 'ls'
   - script: sudo apt-get update
     displayName: 'AptGet Update'
   - script: sudo apt-get install -y pandoc
@@ -32,8 +34,12 @@ jobs:
     displayName: 'Install Requirements'
   - script: python -c "import platform;print(platform.version())"
     displayName: 'Platform'
+  - script: |
+      sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+      sudo apt-get update -qq
+    displayName: 'Install libpthread'
   - script: sudo apt-get install -y libpthread-stubs0-dev
-    displayName: 'Install dependencies'
+    displayName: 'Install libpthread'
   - script: |
       python -u setup.py build_ext --inplace
     displayName: 'Build inplace'
@@ -75,6 +81,8 @@ jobs:
       architecture: 'x64'
   - script: git submodule update --recursive
     displayName: 'submodules'
+  - script: ls -R -l *
+    displayName: 'ls'
   - script: python -m pip install --upgrade pip setuptools wheel wcwidth backcall
     displayName: 'Install tools'
   - script: pip install -r requirements.txt
@@ -112,6 +120,8 @@ jobs:
     displayName: 'gcc version'
   - script: git submodule update --recursive
     displayName: 'submodules'
+  - script: ls -R -l *
+    displayName: 'ls'
   - script: |
           brew update
     displayName: 'brew update'
