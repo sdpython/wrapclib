@@ -12,7 +12,9 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
-  - script: git submodule update --recursive
+  - script: |
+      git submodule sync --recursive
+      git submodule update --init --recursive
     displayName: 'submodules'
   - script: ls -R -l *
     displayName: 'ls'
@@ -79,10 +81,10 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
-  - script: git submodule update --recursive
+  - script: |
+      git submodule sync --recursive
+      git submodule update --init --recursive
     displayName: 'submodules'
-  - script: ls -R -l *
-    displayName: 'ls'
   - script: python -m pip install --upgrade pip setuptools wheel wcwidth backcall
     displayName: 'Install tools'
   - script: pip install -r requirements.txt
@@ -118,7 +120,9 @@ jobs:
       architecture: 'x64'
   - script: gcc --version
     displayName: 'gcc version'
-  - script: git submodule update --recursive
+  - script: |
+      git submodule sync --recursive
+      git submodule update --init --recursive
     displayName: 'submodules'
   - script: ls -R -l *
     displayName: 'ls'
