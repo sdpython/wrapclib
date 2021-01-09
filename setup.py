@@ -203,7 +203,9 @@ if not r:
 
     if sys.platform.startswith("win"):
         libraries_re2 = ['kernel32', '-std=c++11']
-        extra_compile_args_re2 = None
+        extra_compile_args_re2 = [
+            '/wd4100', '/wd4201', '/wd4456', '/wd4457', '/wd4702', '/wd4815',
+            '/utf-8', '/D', 'NOMINMAX']
     elif sys.platform.startswith("darwin"):
         libraries_re2 = None
         extra_compile_args_re2 = ['-lpthread', '-stdlib=libc++', '-std=c++11',
