@@ -92,8 +92,8 @@ jobs:
   - script: python -c "import platform;print(platform.version())"
     displayName: 'Platform'
   - script: |
-      python -u setup.py bdist_wheel
-    displayName: 'Build Package'
+      python -u setup.py build_ext --inplace
+    displayName: 'Build inplace'
   - script: |
       python -m pip install cibuildwheel
       set CIBW_BEFORE_BUILD=pip install .
@@ -103,7 +103,7 @@ jobs:
     displayName: 'Build Package many'
   - task: PublishPipelineArtifact@0
     inputs:
-      artifactName: 'wheel-linux-$(python.version)'
+      artifactName: 'wheel-windows-$(python.version)'
       targetPath: 'dist'
 
 - job: 'TestMac'

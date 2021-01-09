@@ -27,8 +27,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
 import sre_constants
-from ._re2 import _compile  # pylint: disable=E0611
-from ._re2 import escape, Set, UNANCHORED, ANCHOR_START, ANCHOR_BOTH  # pylint: disable=E0611
+from ._re2 import _compile  # pylint: disable=E0611,E0401
+from ._re2 import escape, Set, UNANCHORED, ANCHOR_START, ANCHOR_BOTH  # pylint: disable=E0611,E0401
 
 __all__ = [
     "error",
