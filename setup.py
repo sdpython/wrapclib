@@ -84,6 +84,7 @@ else:
     libraries_re2 = None
     extra_compile_args_re2 = ['-lpthread', '-std=c++11']
 
+root = os.path.abspath(os.path.dirname(__file__))
 ext_re2 = Extension('wrapclib.re2._re2',
                     [os.path.join(root, 'wrapclib/re2', name)
                      for name in sources_re2],
