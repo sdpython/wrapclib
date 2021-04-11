@@ -9,6 +9,7 @@ pandas>=0.24
 pylint
 pillow
 pyquickhelper>=1.9.3240
+pyquicksetup>=0.2
 sphinx
 sphinxcontrib.imagesvg
 wheel
