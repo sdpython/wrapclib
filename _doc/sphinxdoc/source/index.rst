@@ -23,10 +23,6 @@ wrapclib
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://requires.io/github/sdpython/wrapclib/requirements.svg?branch=master
-     :target: https://requires.io/github/sdpython/wrapclib/requirements/?branch=master
-     :alt: Requirements Status
-
 .. image:: https://codecov.io/github/sdpython/wrapclib/coverage.svg?branch=master
     :target: https://codecov.io/github/sdpython/wrapclib?branch=master
 
