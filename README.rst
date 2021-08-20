@@ -8,7 +8,7 @@ wrapclib
 ========
 
 .. image:: https://travis-ci.com/sdpython/wrapclib.svg?branch=master
-    :target: https://travis-ci.com/sdpython/wrapclib
+    :target: https://app.travis-ci.com/github/sdpython/wrapclib
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/auonxiihm1eihv3t?svg=true
