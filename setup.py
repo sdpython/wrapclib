@@ -15,7 +15,7 @@ readme = 'README.rst'
 history = "HISTORY.rst"
 requirements = None
 
-KEYWORDS = project_var_name + ', Xavier Dupré'
+KEYWORDS = [project_var_name, 'Xavier Dupré', 'wrapper']
 DESCRIPTION = """Python Wrapper for some C libraries."""
 CLASSIFIERS = [
     'Programming Language :: Python :: 3',
