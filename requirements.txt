@@ -6,7 +6,7 @@ jyquickhelper
 matplotlib
 numpy>=1.14
 pandas>=0.24
-pylint
+pylint>=2.14.0
 pillow
 pyquickhelper>=1.9.3240
 pyquicksetup>=0.2
