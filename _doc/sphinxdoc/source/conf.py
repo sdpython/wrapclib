@@ -11,8 +11,9 @@ local_template = os.path.join(os.path.abspath(
 
 set_sphinx_variables(__file__, "wrapclib", "Xavier Dupré", 2022,
                      "alabaster", alabaster.get_path(),
-                     locals(), extlinks=dict(
-                         issue=('https://github.com/sdpython/wrapclib/issues/%s', 'issue')),
+                     locals(), extlinks=dict(issue=(
+                         'https://github.com/sdpython/wrapclib/issues/%s',
+                         'issue %s')),
                      title="wrapclib", book=True)
 
 blog_root = "http://www.xavierdupre.fr/app/wrapclib/helpsphinx/"
