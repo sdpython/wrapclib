@@ -20,7 +20,7 @@ blog_root = "http://www.xavierdupre.fr/app/wrapclib/helpsphinx/"
 
 html_css_files = ['my-styles.css']
 
-html_logo = "phdoc_static/project_ico.png"
+html_logo = "_static/project_ico.png"
 html_sidebars = {}
 language = "en"
 
